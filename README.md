@@ -19,14 +19,14 @@ The architecture is decoupled into three distinct microservices to prevent conte
 
 <img width="1920" height="1080" alt="Screenshot (164)" src="https://github.com/user-attachments/assets/9cec57de-7a60-4967-b0ae-cbdba35f9538" />
 
-
+```
 [ React.js Frontend ] ──(REST API)──> [ Port 8000: LangGraph Orchestrator ]
                                                 │         │
                    (A2A Network Protocol) ──────┘         └────── (MCP Protocol)
                                                 ▼                 ▼
                                  [ Port 8002: Coder ]    [ Port 8001: MCP Sandbox ]
                                  (Stateless Logic)       (Secure Execution Node)
-
+```
 Layer,Technologies Used
 Frontend,"React.js, HTML5, CSS3"
 Backend,"Python 3.11, FastAPI, Uvicorn"
@@ -34,6 +34,7 @@ AI & Orchestration,"LangGraph, LangChain, Google Gemini 2.5 Flash"
 Protocols,"A2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)"
 Cloud (GCP),"Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM"
 Deployment,"Docker, Docker Compose"
+
 
 
 ## ✨ Key Features
