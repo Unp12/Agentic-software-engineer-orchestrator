@@ -17,6 +17,11 @@ The Autonomous Software Engineer Orchestrator is a transition from monolithic AI
 
 The architecture is decoupled into three distinct microservices to prevent context degradation and ensure host machine security.
 
+<img width="1920" height="1080" alt="Screenshot (164)" src="https://github.com/user-attachments/assets/9cec57de-7a60-4967-b0ae-cbdba35f9538" />
+
+<img width="1920" height="1080" alt="Screenshot (161)" src="https://github.com/user-attachments/assets/6182f099-5f9b-4e9a-8389-d0e377a2f57d" />
+
+
 ```text
 [ React.js Frontend ] ──(REST API)──> [ Port 8000: LangGraph Orchestrator ]
                                                 │         │
