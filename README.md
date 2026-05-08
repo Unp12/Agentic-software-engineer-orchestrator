@@ -27,14 +27,15 @@ The architecture is decoupled into three distinct microservices to prevent conte
                                  [ Port 8002: Coder ]    [ Port 8001: MCP Sandbox ]
                                  (Stateless Logic)       (Secure Execution Node)
 ```
+
 ```
-Layer,Technologies Used
-Frontend,"React.js, HTML5, CSS3"
-Backend,"Python 3.11, FastAPI, Uvicorn"
-AI & Orchestration,"LangGraph, LangChain, Google Gemini 2.5 Flash"
-Protocols,"A2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)"
-Cloud (GCP),"Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM"
-Deployment,"Docker, Docker Compose"
+Layer   - Technologies Used
+Frontend  - "React.js, HTML5, CSS3"
+Backend -"Python 3.11, FastAPI, Uvicorn"
+AI & Orchestration - "LangGraph, LangChain, Google Gemini 2.5 Flash"
+Protocols - "A2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)"
+Cloud - (GCP),"Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM"
+Deployment - "Docker, Docker Compose"
 
 ```
 
