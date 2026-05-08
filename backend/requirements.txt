@@ -1,0 +1,21 @@
+# Web Framework
+fastapi
+uvicorn
+pydantic
+python-dotenv
+
+# Multi-Agent Orchestration & LLM
+langchain-core
+langchain-google-genai
+langgraph
+
+# Model Context Protocol (MCP)
+mcp
+
+# Agentic Control Plane (Tracing)
+langsmith
+
+google-cloud-aiplatform[agent_engines]
+langchain-google-vertexai
+langgraph
+requests

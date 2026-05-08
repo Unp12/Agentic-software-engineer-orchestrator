@@ -1,0 +1,24 @@
+# --- Backend (Python / GCP) ---
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.env
+*.key
+credentials.json
+backend/workspace/
+backend/mcp_tools/workspace/
+*.db
+
+# --- Frontend (React) ---
+node_modules/
+build/
+dist/
+.env.local
+.env.development
+.env.test
+.env.production
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
