@@ -27,6 +27,7 @@ The architecture is decoupled into three distinct microservices to prevent conte
                                  [ Port 8002: Coder ]    [ Port 8001: MCP Sandbox ]
                                  (Stateless Logic)       (Secure Execution Node)
 ```
+```
 Layer,Technologies Used
 Frontend,"React.js, HTML5, CSS3"
 Backend,"Python 3.11, FastAPI, Uvicorn"
@@ -35,7 +36,7 @@ Protocols,"A2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)"
 Cloud (GCP),"Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM"
 Deployment,"Docker, Docker Compose"
 
-
+```
 
 ## ✨ Key Features
 * **A2A (Agent-to-Agent) Debugging Loops:** Overcame "hallucination loops" by engineering stateful HTTP payloads. The Orchestrator injects the last 5 nodes of error tracebacks across the network, giving the stateless Coder microservice the memory required to fix its own bugs.
