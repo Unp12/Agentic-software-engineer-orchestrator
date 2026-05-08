@@ -19,7 +19,7 @@ The architecture is decoupled into three distinct microservices to prevent conte
 
 <img width="1920" height="1080" alt="Screenshot (164)" src="https://github.com/user-attachments/assets/9cec57de-7a60-4967-b0ae-cbdba35f9538" />
 
-```text
+
 [ React.js Frontend ] ──(REST API)──> [ Port 8000: LangGraph Orchestrator ]
                                                 │         │
                    (A2A Network Protocol) ──────┘         └────── (MCP Protocol)
@@ -42,7 +42,7 @@ Deployment,"Docker, Docker Compose"
 * **Full-Stack Visibility:** A React UI that allows users to submit prompts and monitor the Agent-to-Agent network jumps in real-time.
 * **Cloud-Native Deployment:** Fully containerized using Docker and deployed on Google Cloud Platform using Cloud Run and Vertex AI Agent Engine.
 
----
+
 
 ## 🧠 Engineering Challenges & Solutions
 
