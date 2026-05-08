@@ -24,14 +24,62 @@ The architecture is decoupled into three distinct microservices to prevent conte
                                                 ▼                 ▼
                                  [ Port 8002: Coder ]    [ Port 8001: MCP Sandbox ]
                                  (Stateless Logic)       (Secure Execution Node)
-✨ Key FeaturesA2A (Agent-to-Agent) Debugging Loops: Overcame "hallucination loops" by engineering stateful HTTP payloads. The Orchestrator injects the last 5 nodes of error tracebacks across the network, giving the stateless Coder microservice the memory required to fix its own bugs.Isolated MCP Sandbox: AI-generated code is never executed on the main application thread. It is routed to an isolated Model Context Protocol server, preventing malicious or broken code from crashing the Orchestrator.Full-Stack Visibility: A React UI that allows users to submit prompts and monitor the Agent-to-Agent network jumps in real-time.Cloud-Native Deployment: Fully containerized using Docker and deployed on Google Cloud Platform using Cloud Run and Vertex AI Agent Engine.🛠️ Tech StackLayerTechnologies UsedFrontendReact.js, HTML5, CSS3BackendPython 3.11, FastAPI, UvicornAI & OrchestrationLangGraph, LangChain, Google Gemini 2.5 FlashProtocolsA2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)Cloud (GCP)Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM🧠 Engineering Challenges & SolutionsChallenge: The "Stateless Coder" Infinite LoopMoving the Coder to an independent microservice stripped it of session memory. When code failed, it received the original prompt without the bug report, causing GraphRecursionError crashes.Solution: Upgraded the A2A network payload to inject LangGraph state history (including QA tracebacks) directly into the POST request, granting the Coder dynamic memory to break the loop.Challenge: API Quota ExhaustionHigh-frequency A2A communication during debugging triggered 429 RESOURCE_EXHAUSTED errors from the Gemini API.Solution: Implemented exponential backoff for external API calls and transitioned authentication to Google Cloud IAM roles via Vertex AI to utilize enterprise-grade routing.🚀 Quick Start (Local Deployment)1. Clone the RepositoryBashgit clone [https://github.com/YOUR_USERNAME/autonomous-software-engineer-orchestrator.git](https://github.com/YOUR_USERNAME/autonomous-software-engineer-orchestrator.git)
-cd autonomous-software-engineer-orchestrator
-2. Start the Backend Cluster (Requires Docker)Bashcd backend
+
+Layer,Technologies Used
+Frontend,"React.js, HTML5, CSS3"
+Backend,"Python 3.11, FastAPI, Uvicorn"
+AI & Orchestration,"LangGraph, LangChain, Google Gemini 2.5 Flash"
+Protocols,"A2A (Agent-to-Agent) Networking, MCP (Model Context Protocol)"
+Cloud (GCP),"Vertex AI Agent Engine, Cloud Run, Artifact Registry, IAM"
+Deployment,"Docker, Docker Compose"
+
+
+## ✨ Key Features
+* **A2A (Agent-to-Agent) Debugging Loops:** Overcame "hallucination loops" by engineering stateful HTTP payloads. The Orchestrator injects the last 5 nodes of error tracebacks across the network, giving the stateless Coder microservice the memory required to fix its own bugs.
+* **Isolated MCP Sandbox:** AI-generated code is never executed on the main application thread. It is routed to an isolated Model Context Protocol server, preventing malicious or broken code from crashing the Orchestrator.
+* **Full-Stack Visibility:** A React UI that allows users to submit prompts and monitor the Agent-to-Agent network jumps in real-time.
+* **Cloud-Native Deployment:** Fully containerized using Docker and deployed on Google Cloud Platform using Cloud Run and Vertex AI Agent Engine.
+
+---
+
+## 🧠 Engineering Challenges & Solutions
+
+**Challenge:** *The "Stateless Coder" Infinite Loop*
+Moving the Coder to an independent microservice stripped it of session memory. When code failed, it received the original prompt without the bug report, causing `GraphRecursionError` crashes.
+**Solution:** Upgraded the A2A network payload to inject LangGraph state history (including QA tracebacks) directly into the POST request, granting the Coder dynamic memory to break the loop.
+
+**Challenge:** *API Quota Exhaustion*
+High-frequency A2A communication during debugging triggered `429 RESOURCE_EXHAUSTED` errors from the Gemini API.
+**Solution:** Implemented exponential backoff for external API calls and transitioned authentication to Google Cloud IAM roles via Vertex AI to utilize enterprise-grade routing.
+
+🚀 Quick Start (Local Deployment)
+
+1. Clone the Repository
+Bash
+git clone [https://github.com/Unp12/Agentic-software-engineer-orchestrator.git](https://github.com/Unp12/Agentic-software-engineer-orchestrator.git)
+cd Agentic-software-engineer-orchestrator
+
+2. Start the Backend Cluster (Requires Docker)
+Bash
+cd backend
 docker-compose up --build
-Orchestrator runs on http://localhost:8000MCP Sandbox runs on http://localhost:8001Coder Service runs on http://localhost:80023. Start the React FrontendBashcd frontend
+Orchestrator runs on http://localhost:8000
+
+MCP Sandbox runs on http://localhost:8001
+
+Coder Service runs on http://localhost:8002
+
+3. Start the React Frontend
+Bash
+cd frontend
 npm install
 npm start
-☁️ Cloud Deployment (GCP)This project is optimized for Google Cloud Platform.Container images are pushed to Artifact Registry.The Coder and MCP Sandbox are deployed as stateless Cloud Run services.The LangGraph Orchestrator is initialized via the Vertex AI Agent Engine (agent_engines.create), securely binding the A2A communication through Google's IAM.📈 Impact / ATS MetricsArchitected a distributed multi-agent system using LangGraph and FastAPI, decoupling AI logic into a 3-node microservice cluster that reduced debugging iteration loops by providing stateful error feedback via A2A (Agent-to-Agent) networking.Engineered an isolated Model Context Protocol (MCP) sandbox for secure AI code execution, successfully containerizing the pipeline with Docker to safely execute and validate 100% of AI-generated scripts outside the main application thread.
-Once you commit this to your main branch, GitHub will automatically render those badges and code blocks into a beautiful landing page. 
 
-Are you planning to add a few screenshots or a GIF of the React UI working into the README
+☁️ Cloud Deployment (GCP)
+This project is optimized for Google Cloud Platform.
+
+Container images are pushed to Artifact Registry.
+
+The Coder and MCP Sandbox are deployed as stateless Cloud Run services via Docker containers.
+
+The LangGraph Orchestrator is initialized via the Vertex AI Agent Engine (agent_engines.create), securely binding the A2A communication through Google's IAM.
