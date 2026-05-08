@@ -1,4 +1,4 @@
-Markdown# 🚀 Autonomous Software Engineer Orchestrator
+# 🚀 Autonomous Software Engineer Orchestrator
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?style=flat-square&logo=react)
@@ -34,4 +34,4 @@ npm start
 ☁️ Cloud Deployment (GCP)This project is optimized for Google Cloud Platform.Container images are pushed to Artifact Registry.The Coder and MCP Sandbox are deployed as stateless Cloud Run services.The LangGraph Orchestrator is initialized via the Vertex AI Agent Engine (agent_engines.create), securely binding the A2A communication through Google's IAM.📈 Impact / ATS MetricsArchitected a distributed multi-agent system using LangGraph and FastAPI, decoupling AI logic into a 3-node microservice cluster that reduced debugging iteration loops by providing stateful error feedback via A2A (Agent-to-Agent) networking.Engineered an isolated Model Context Protocol (MCP) sandbox for secure AI code execution, successfully containerizing the pipeline with Docker to safely execute and validate 100% of AI-generated scripts outside the main application thread.
 Once you commit this to your main branch, GitHub will automatically render those badges and code blocks into a beautiful landing page. 
 
-Are you planning to add a few screenshots or a GIF of the React UI working into the READ
+Are you planning to add a few screenshots or a GIF of the React UI working into the README
